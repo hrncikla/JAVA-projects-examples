@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab08.myapp.CaesarCipherFXMLController">
+    <top>
+        <MenuBar>
+            <Menu text="_File">
+                <MenuItem text="Encrypt" onAction="#encrypt" accelerator="ctrl+e"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Decrypt" onAction="#decrypt" accelerator="ctrl+d"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Exit" onAction="#exit" accelerator="ctrl+e"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" maxWidth="400" maxHeight="300">
+            <GridPane alignment="CENTER" hgap="30" vgap="10">
+                <Label text="Allowed characters: A-Z, space, dot" GridPane.columnSpan="4"/>
+                <Label text="Unencrypted text:" GridPane.rowIndex="1"/>
+                <TextArea fx:id="unencryptedTextArea" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                          GridPane.columnSpan="2"
+                          onKeyTyped="#filterTextAreaInput"/>
+                <Label text="Encrypted text:" GridPane.rowIndex="2"/>
+                <TextArea fx:id="encryptedTextArea" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                          GridPane.columnSpan="2"
+                          onKeyTyped="#filterTextAreaInput"/>
+                <Button text="Encrypt" onAction="#encrypt" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                <Button text="Decrypt" onAction="#decrypt" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                <Label fx:id="shiftLabel" GridPane.rowIndex="3"/>
+                <Button text="Change shift" onAction="#shiftAction" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>
